@@ -137,7 +137,7 @@ class HardSourceWebpackPlugin {
   apply(compiler) {
     const options = this.options;
     let active = true;
-
+    //工厂模式
     const logger = new LoggerFactory(compiler).create();
 
     const loggerCore = logger.from('core');
@@ -183,6 +183,7 @@ class HardSourceWebpackPlugin {
       function unlockLogger() {
         logger.unlock();
       }
+      //webpack生命周期
       compilerHooks.watchRun.tap('HardSource - index', unlockLogger);
       compilerHooks.run.tap('HardSource - index', unlockLogger);
       return;
